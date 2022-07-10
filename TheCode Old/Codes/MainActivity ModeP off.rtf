@@ -1,0 +1,2003 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-BoldOblique;
+\f3\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red250\green78\blue8;\red255\green255\blue255;\red141\green251\blue31;
+\red255\green255\blue255;\red162\green102\blue234;\red120\green241\blue28;\red25\green173\blue186;\red236\green254\blue73;
+\red82\green1\blue103;\red90\green254\blue7;\red243\green186\blue30;\red193\green161\blue157;\red152\green213\blue67;
+\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c99490\c39861\c0;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c60847\c96832\c15566;
+\cssrgb\c100000\c100000\c99985;\cssrgb\c69973\c50384\c93377;\cssrgb\c52858\c93715\c14022;\cssrgb\c4448\c72763\c77700;\cssrgb\c93975\c98373\c35430;
+\cssrgb\c40225\c9419\c48160;\cssrgb\c39842\c97486\c0;\cssrgb\c96671\c77090\c14776;\cssrgb\c80418\c69465\c67753;\cssrgb\c65239\c85074\c33129;
+\cssrgb\c50327\c50328\c50265;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf2 \cb3 package 
+\f1\b0 \cf4 fr.juliette.thecode\cf5 ;\
+\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.annotation.
+\f0\b \cf6 SuppressLint
+\f1\b0 \cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.app.AlertDialog\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.content.ClipboardManager\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.content.\cf7 DialogInterface\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.content.Intent\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.graphics.Color\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.os.Build\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.os.Bundle\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.support.annotation.
+\f0\b \cf6 RequiresApi
+\f1\b0 \cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.support.v7.app.AppCompatActivity\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.text.\cf7 Editable\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.text.SpannableString\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.text.\cf7 TextWatcher\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.text.method.LinkMovementMethod\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.text.util.Linkify\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.view.\cf7 Menu\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.view.\cf7 MenuItem\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.view.View\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.view.View\cf5 .\cf7 OnClickListener\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.Button\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.EditText\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.ImageView\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.SeekBar\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.Switch\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.TextView\cf5 ;\
+
+\f0\b \cf2 import 
+\f1\b0 \cf4 android.widget.Toast\cf5 ;\
+\
+
+\f0\b \cf2 public class 
+\f1\b0 \cf4 MainActivity 
+\f0\b \cf2 extends 
+\f1\b0 \cf4 AppCompatActivity \cf8 \{\
+\
+    \cf6 // Introduction des connexions\
+\
+    \cf4 Button \cf9 genererButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Button \cf9 motButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Button \cf9 chiffreButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Button \cf9 questionButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Button \cf9 helpButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Button \cf9 copyButton \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    \cf4 Switch \cf9 minSwitch \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Switch \cf9 majSwitch \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Switch \cf9 symSwitch \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 Switch \cf9 chiSwitch \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    \cf4 EditText \cf9 siteEditText \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 EditText \cf9 clefEditText \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 EditText \cf9 aEditText \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 EditText \cf9 bEditText \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 EditText \cf9 motPasseEditText \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    \cf4 TextView \cf9 securiteTextView \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 TextView \cf9 longueurTextView \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 TextView \cf9 clefTextView \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    \cf4 SeekBar \cf9 longueurSeekBar \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+    \cf4 SeekBar \cf9 securiteSeekBar \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    \cf4 ImageView \cf9 separate \cf5 = 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+\
+    
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 Q
+\f1\i0\b0 \cf8 )\
+    
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+    
+\f0\b \cf2 public void 
+\f1\b0 \cf12 onCreate\cf8 (\cf4 Bundle \cf13 savedInstanceState\cf8 ) \{\
+        
+\f0\b \cf2 super
+\f1\b0 \cf5 .\cf12 onCreate\cf8 (\cf13 savedInstanceState\cf8 )\cf5 ;\
+        \cf12 setContentView\cf8 (\cf4 R\cf5 .\cf4 layout\cf5 .
+\f2\i\b \cf10 activity_main
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf6 // MARK : Outlets\
+\
+        \cf9 genererButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 genererButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 motButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 motButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 chiffreButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 chiffreButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 questionButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 questionButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 copyButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 copyButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 helpButton \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 helpButton
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 minSwitch \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 minSwitch
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 majSwitch \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 majSwitch
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 symSwitch \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 symSwitch
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 chiSwitch \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 chiSwitch
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 siteEditText \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 siteEditText
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 clefEditText \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 clefEditText
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 aEditText \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 aEditText
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 bEditText \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 bEditText
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 motPasseEditText \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 motPasseEditText
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 securiteTextView \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 securiteTextView
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 longueurTextView \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 longueurTextView
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 clefTextView \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 typedecodage
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 securiteSeekBar \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 securiteSeekBar
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf9 longueurSeekBar \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 longueurSeekBar
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 separate \cf5 = \cf12 findViewById\cf8 (\cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 separate
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+        \cf9 genererButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 genererListener\cf8 )\cf5 ;\
+        \cf9 copyButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 copyListener\cf8 )\cf5 ;\
+        \cf9 helpButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 helpListener\cf8 )\cf5 ;\
+        \cf9 motButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 motListener\cf8 )\cf5 ;\
+        \cf9 chiffreButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 chiffreListener\cf8 )\cf5 ;\
+        \cf9 questionButton\cf5 .\cf12 setOnClickListener\cf8 (\cf9 questionListener\cf8 )\cf5 ;\
+\
+\
+        \cf9 minSwitch\cf5 .\cf12 setOnClickListener\cf8 (\cf9 minListener\cf8 )\cf5 ;\
+        \cf9 majSwitch\cf5 .\cf12 setOnClickListener\cf8 (\cf9 majListener\cf8 )\cf5 ;\
+        \cf9 symSwitch\cf5 .\cf12 setOnClickListener\cf8 (\cf9 symListener\cf8 )\cf5 ;\
+        \cf9 chiSwitch\cf5 .\cf12 setOnClickListener\cf8 (\cf9 chiListener\cf8 )\cf5 ;\
+\
+        \cf9 longueurSeekBar\cf5 .\cf12 setOnSeekBarChangeListener\cf8 (\cf9 longueurListener\cf8 )\cf5 ;\
+        \cf9 securiteSeekBar\cf5 .\cf12 setOnSeekBarChangeListener\cf8 (\cf9 securiteListener\cf8 )\cf5 ;\
+\
+        \cf6 //Text Watch : On text changed : g\'e9n\'e8re le mot de passe\
+\
+        \cf7 TextWatcher \cf9 textWatcher \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 TextWatcher\cf8 () \{\
+            
+\f0\b \cf6 @Override\
+            \cf2 public void 
+\f1\b0 \cf12 beforeTextChanged\cf8 (\cf7 CharSequence \cf13 charSequence\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i1\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i2\cf8 ) \{\
+            \}\
+\
+            
+\f0\b \cf6 @Override\
+            \cf2 public void 
+\f1\b0 \cf12 onTextChanged\cf8 (\cf7 CharSequence \cf13 charSequence\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i1\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 i2\cf8 ) \{\
+            \}\
+\
+            
+\f0\b \cf6 @Override\
+            \cf2 public void 
+\f1\b0 \cf12 afterTextChanged\cf8 (\cf7 Editable \cf13 editable\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 sansgenerer\cf8 ) \{\
+                    \cf12 generer\cf8 ()\cf5 ;\
+                \cf8 \}\
+            \}\
+        \}\cf5 ;\
+\
+        \cf9 clefEditText\cf5 .\cf12 addTextChangedListener\cf8 (\cf9 textWatcher\cf8 )\cf5 ;\
+        \cf9 aEditText\cf5 .\cf12 addTextChangedListener\cf8 (\cf9 textWatcher\cf8 )\cf5 ;\
+        \cf9 bEditText\cf5 .\cf12 addTextChangedListener\cf8 (\cf9 textWatcher\cf8 )\cf5 ;\
+        \cf9 siteEditText\cf5 .\cf12 addTextChangedListener\cf8 (\cf9 textWatcher\cf8 )\cf5 ;\
+\
+        \cf6 // MARK : On the beginning\
+\
+        \cf9 separate\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf12 lettre\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+        \cf12 modifSafety\cf8 ()\cf5 ;\
+    \cf8 \}\
+\
+    \cf6 // MARK : Variables : Initialisation\
+\
+    // public boolean modeProgrammateur = false;\
+    // public boolean chiffre = false;\
+    
+\f0\b \cf2 public boolean 
+\f1\b0 \cf9 sansgenerer \cf5 = 
+\f0\b \cf2 false
+\f1\b0 \cf5 ;\
+    
+\f0\b \cf2 public static 
+\f1\b0 \cf4 String\cf8 [] \cf5 alphabets = \cf8 \{\cf11 "pamqlsoziekdjfurythgnwbxvc"\cf5 , \cf11 "wqapmloikxszedcjuyhnvfrtgb"\cf5 , \cf11 "qaszdefrgthyjukilompcvbnxw"\cf5 , \cf11 "nhybgtvfrcdexszwqajuiklopm"\cf5 , \cf11 "mlkjhgfdsqwxcvbnpoiuytreza"\cf5 , \cf11 "ijnbhuygvcftrdxwsezqakolpm"\cf5 , \cf11 "poiuytrezamlkjhgfdsqnbvcxw"\cf5 , \cf11 "wxcvbnqsdfghjklmazertyuiop"\cf5 , \cf11 "unybtvrcexzwaqikolpmjhgfds"\cf5 , \cf11 "oplmkjuiytghbnvcfdrezasqxw"\cf5 , \cf11 "sezqadrftwxcgyvhubjinkolpm"\cf5 , \cf11 "jfkdlsmqhgpaozieurytvcbxnw"\cf5 , \cf11 "gftrhdyejsuzkqailompnwbxvc"\cf5 , \cf11 "frgthyjukilompnbvcxwedzsaq"\cf5 , \cf11 "gftryehdjsuziakqlopmnwbxvc"\cf5 , \cf11 "mlkjhgfdsqxecrvtbynuiopwza"\cf5 , \cf11 "pamqlsoziekdjfurythgnwbvcx"\cf5 , \cf11 "jklmuiopdfghertyqsazwxcvbn"\cf5 , \cf11 "vgfcbhdxnjwskiqazolmpertyu"\cf5 , \cf11 "onbivucyxtwrezapgjhklmfdsq"\cf5 , \cf11 "portezcviuxwhskyajgblndqfm"\cf5 , \cf11 "qposidufygthjreklzmawnxbvc"\cf5 , \cf11 "pwoxicuvbtynrmelzakjhgfdsq"\cf5 , \cf11 "hajzkelrmtgyfudisoqpnbvxcw"\cf5 , \cf11 "wqxscdvfbgnhjukilompytreza"\cf5 , \cf11 "thequickbrownfxjmpsvlazydg"\cf5 , \cf11 "abcdefghijklmnopqrstuvwxyz"\cf8 \}\cf5 ;\
+\
+    \cf6 // MARK : Private Fonctions\
+\
+    
+\f0\b \cf2 public void 
+\f1\b0 \cf12 generer\cf8 () \{\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 aEditText\cf5 .\cf12 getHint\cf8 () \cf5 == \cf11 "a"\cf8 ) \{\
+            \cf6 // G\'e9n\'e8re le mot de passe avec un codage chiffre\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 !\cf8 (\cf9 aEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0 \cf5 || \cf9 bEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0 \cf5 || \cf9 siteEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0\cf8 )) \{\
+                
+\f0\b \cf2 int 
+\f1\b0 \cf5 A = \cf4 Integer\cf5 .
+\f2\i\b \cf6 parseInt
+\f1\i0\b0 \cf8 (\cf9 aEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ())\cf5 ;\
+                
+\f0\b \cf2 int 
+\f1\b0 \cf9 B \cf5 = \cf4 Integer\cf5 .
+\f2\i\b \cf6 parseInt
+\f1\i0\b0 \cf8 (\cf9 bEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ())\cf5 ;\
+                \cf4 String \cf9 site \cf5 = \cf9 siteEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 toLowerCase\cf8 ()\cf5 ;\
+\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 A % \cf14 26 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 A = A+\cf14 1\cf5 ;\
+                \cf8 \}\
+                \cf4 String\cf8 [] \cf9 result \cf5 = \cf12 complexification\cf8 (
+\f2\i\b \cf6 codeChiffre
+\f1\i0\b0 \cf8 (
+\f2\i\b \cf6 longueur
+\f1\i0\b0 \cf8 (\cf9 site\cf8 )\cf5 , A, \cf9 B\cf8 ))\cf5 ;\
+\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 result\cf8 [\cf14 2\cf8 ]\cf5 .\cf12 equals\cf8 (\cf11 "0"\cf8 )) \{\
+                    \cf4 Toast\cf5 .
+\f2\i\b \cf6 makeText
+\f1\i0\b0 \cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf5 , \cf11 "Aucun type de caract\'e8res n'est coch\'e9"\cf5 , \cf4 Toast\cf5 .
+\f2\i\b \cf10 LENGTH_LONG
+\f1\i0\b0 \cf8 )\cf5 .\cf12 show\cf8 ()\cf5 ;\
+                \cf8 \}\
+                \cf9 motPasseEditText\cf5 .\cf12 setText\cf8 (\cf9 result\cf8 [\cf14 0\cf8 ])\cf5 ;\
+                \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf8 \}\
+        \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+            \cf6 // G\'e9n\'e8re le mot de passe avec un codage lettre\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 !\cf8 (\cf9 clefEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0 \cf5 || \cf9 siteEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0\cf8 )) \{\
+                \cf4 String \cf9 clef \cf5 = \cf8 (\cf9 clefEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ())\cf5 .\cf12 toLowerCase\cf8 ()\cf5 ;\
+                \cf4 String \cf9 site \cf5 = \cf9 siteEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 .\cf12 toLowerCase\cf8 ()\cf5 ;\
+\
+                \cf4 String\cf8 [] \cf9 result \cf5 = \cf12 complexification\cf8 (
+\f2\i\b \cf6 codeLettre
+\f1\i0\b0 \cf8 (
+\f2\i\b \cf6 longueur
+\f1\i0\b0 \cf8 (\cf9 site\cf8 )\cf5 , \cf9 clef\cf8 ))\cf5 ;\
+\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 result\cf8 [\cf14 2\cf8 ]\cf5 .\cf12 equals\cf8 (\cf11 "0"\cf8 )) \{\
+                    \cf4 Toast\cf5 .
+\f2\i\b \cf6 makeText
+\f1\i0\b0 \cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf5 , \cf11 "Aucun type de caract\'e8res n'est coch\'e9"\cf5 , \cf4 Toast\cf5 .
+\f2\i\b \cf10 LENGTH_LONG
+\f1\i0\b0 \cf8 )\cf5 .\cf12 show\cf8 ()\cf5 ;\
+                \cf8 \}\
+                \cf9 motPasseEditText\cf5 .\cf12 setText\cf8 (\cf9 result\cf8 [\cf14 0\cf8 ])\cf5 ;\
+                \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf8 \}\
+        \}\
+    \}\
+\
+    
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+    
+\f0\b \cf2 public void 
+\f1\b0 \cf12 lettre\cf8 (
+\f0\b \cf2 boolean 
+\f1\b0 \cf13 bool\cf8 ) \{\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf13 bool\cf8 ) \{\
+            \cf9 clefTextView\cf5 .\cf12 setText\cf8 (\cf11 "Clef :"\cf8 )\cf5 ;\
+            \cf9 aEditText\cf5 .\cf12 setHint\cf8 (\cf11 "autre"\cf8 )\cf5 ;\
+            \cf9 clefEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 VISIBLE
+\f1\i0\b0 \cf8 )\cf5 ;\
+            \cf9 clefEditText\cf5 .\cf12 setText\cf8 (\cf11 ""\cf8 )\cf5 ;\
+            \cf9 aEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+            \cf9 bEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+            \cf9 clefTextView\cf5 .\cf12 setText\cf8 (\cf11 "Clefs :"\cf8 )\cf5 ;\
+            \cf9 aEditText\cf5 .\cf12 setHint\cf8 (\cf11 "a"\cf8 )\cf5 ;\
+            \cf9 aEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 VISIBLE
+\f1\i0\b0 \cf8 )\cf5 ;\
+            \cf9 bEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 VISIBLE
+\f1\i0\b0 \cf8 )\cf5 ;\
+            \cf9 clefEditText\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+        \cf8 \}\
+    \}\
+\
+    
+\f0\b \cf2 public void 
+\f1\b0 \cf12 copy\cf8 (\cf4 java.lang.String \cf13 mot\cf8 ) \{\
+        \cf6 // copie le mot\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf13 mot \cf5 != 
+\f0\b \cf2 null
+\f1\b0 \cf8 ) \{\
+            \cf4 ClipboardManager \cf9 clipboard \cf5 = \cf8 (\cf4 ClipboardManager\cf8 ) \cf12 getSystemService\cf8 (
+\f2\i\b \cf10 CLIPBOARD_SERVICE
+\f1\i0\b0 \cf8 )\cf5 ;\
+            
+\f0\b \cf2 assert 
+\f1\b0 \cf9 clipboard \cf5 != 
+\f0\b \cf2 null
+\f1\b0 \cf5 ;\
+            \cf4 android.content.ClipData \cf9 clip \cf5 = \cf4 android.content.ClipData\cf5 .
+\f2\i\b \cf6 newPlainText
+\f1\i0\b0 \cf8 (\cf11 "Copied Text"\cf5 , \cf13 mot\cf8 )\cf5 ;\
+            \cf9 clipboard\cf5 .\cf12 setPrimaryClip\cf8 (\cf9 clip\cf8 )\cf5 ;\
+        \cf8 \}\
+    \}\
+\
+    
+\f0\b \cf2 public static 
+\f1\b0 \cf4 String \cf12 codeLettre\cf8 (\cf4 String \cf13 mot\cf5 , 
+\f0\b \cf2 final 
+\f1\b0 \cf4 String \cf13 clef\cf8 ) \{\
+        \cf6 // Code le mot avec la clef\
+        \cf4 StringBuilder \cf9 code \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf13 mot\cf5 .\cf12 length\cf8 ()\cf5 ; i++\cf8 ) \{\
+            \cf4 String \cf9 alpha1 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 mot\cf5 .\cf12 charAt\cf8 (\cf14 1\cf8 ))\cf5 ;\
+            \cf4 String \cf9 alpha2 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 mot\cf5 .\cf12 charAt\cf8 (\cf14 0\cf8 ))\cf5 ;\
+            \cf4 String \cf9 alpha3 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 clef\cf5 .\cf12 charAt\cf8 (\cf14 0\cf8 ))\cf5 ;\
+            \cf9 code\cf5 .\cf12 append\cf8 (\cf9 alpha1\cf5 .\cf12 charAt\cf8 ((\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf13 mot\cf5 .\cf12 charAt\cf8 (\cf5 i\cf8 )) \cf5 + \cf9 alpha3\cf5 .\cf12 indexOf\cf8 (\cf13 clef\cf5 .\cf12 charAt\cf8 (\cf5 i % \cf13 clef\cf5 .\cf12 length\cf8 ()))) \cf5 % \cf14 26\cf8 ))\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return 
+\f1\b0 \cf9 code\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 public static 
+\f1\b0 \cf4 String \cf12 codeChiffre\cf8 (\cf4 String \cf13 mot\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 A\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 B\cf8 ) \{\
+        \cf6 // Code le mot avec les clef A et B\
+        \cf4 StringBuilder \cf9 code \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf13 mot\cf5 .\cf12 length\cf8 ()\cf5 ; i++\cf8 ) \{\
+            \cf4 String \cf9 alpha0 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 mot\cf5 .\cf12 charAt\cf8 (\cf14 0\cf8 ))\cf5 ;\
+            \cf4 String \cf9 alpha1 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf9 alpha0\cf5 .\cf12 charAt\cf8 (\cf13 A \cf5 % \cf9 alpha0\cf5 .\cf12 length\cf8 ()))\cf5 ;\
+            \cf4 String \cf9 alpha2 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf9 alpha0\cf5 .\cf12 charAt\cf8 (\cf13 B \cf5 % \cf9 alpha0\cf5 .\cf12 length\cf8 ()))\cf5 ;\
+            \cf9 code\cf5 .\cf12 append\cf8 (\cf9 alpha1\cf5 .\cf12 charAt\cf8 ((\cf13 A \cf5 * \cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf13 mot\cf5 .\cf12 charAt\cf8 (\cf5 i\cf8 )) \cf5 + \cf13 B\cf8 ) \cf5 % \cf14 26\cf8 ))\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return 
+\f1\b0 \cf9 code\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 public static 
+\f1\b0 \cf4 String \cf12 longueur\cf8 (\cf4 String \cf5 site\cf8 ) \{\
+        \cf6 // Corrige la longueur du mot pour faire 20\
+        \cf4 String \cf9 L \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 site\cf5 .\cf12 charAt\cf8 (\cf14 0\cf8 ))\cf5 ;\
+        \cf4 StringBuilder \cf9 site2 \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 ()\cf5 ;\
+\
+        
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf8 (\cf13 site\cf5 .\cf12 length\cf8 () \cf5 * \cf14 2\cf8 )\cf5 ; i++\cf8 ) \{\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                \cf9 site2\cf5 .\cf12 append\cf8 (\cf13 site\cf5 .\cf12 charAt\cf8 (\cf5 i / \cf14 2\cf8 ))\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                \cf9 site2\cf5 .\cf12 append\cf8 (\cf9 L\cf5 .\cf12 charAt\cf8 (\cf5 i / \cf14 2\cf8 ))\cf5 ;\
+            \cf8 \}\
+        \}\
+        \cf5 site = \cf9 site2\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+        \cf4 String \cf9 T \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf5 site.\cf12 charAt\cf8 (\cf14 1\cf8 ))\cf5 ;\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 site.\cf12 length\cf8 () \cf5 <= \cf14 20\cf8 ) \{\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf8 (\cf14 20 \cf5 - site.\cf12 length\cf8 ())\cf5 ; i++\cf8 ) \{\
+                \cf9 site2\cf5 .\cf12 append\cf8 (\cf9 T\cf5 .\cf12 charAt\cf8 (\cf5 i\cf8 ))\cf5 ;\
+            \cf8 \}\
+            \cf5 site = \cf9 site2\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+            \cf5 site = site.\cf12 substring\cf8 (\cf14 0\cf5 , \cf14 20\cf8 )\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return 
+\f1\b0 \cf5 site;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 public 
+\f1\b0 \cf4 String\cf8 [] \cf12 safety\cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf13 bits\cf8 ) \{\
+        \cf6 // Renvoie la bonne couleur ainsi que la s\'e9curit\'e9 suivant le nombre de bits\
+        \cf4 String \cf9 secure\cf5 ;\
+        \cf4 String \cf9 color\cf5 ;\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf13 bits \cf5 < \cf14 64\cf8 ) \{\
+            \cf9 secure \cf5 = \cf11 " Tr\'e8s Faible "\cf5 ;\
+            \cf9 color \cf5 = \cf11 "#FE0101"\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf13 bits \cf5 < \cf14 80\cf8 ) \{\
+            \cf9 secure \cf5 = \cf11 " Faible "\cf5 ;\
+            \cf9 color \cf5 = \cf11 "#FE4501"\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf13 bits \cf5 < \cf14 100\cf8 ) \{\
+            \cf9 secure \cf5 = \cf11 " Moyenne "\cf5 ;\
+            \cf9 color \cf5 = \cf11 "#FE7601"\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf13 bits \cf5 < \cf14 128\cf8 ) \{\
+            \cf9 secure \cf5 = \cf11 " Forte "\cf5 ;\
+            \cf9 color \cf5 = \cf11 "#53FE38"\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+            \cf9 secure \cf5 = \cf11 " Tr\'e8s Forte "\cf5 ;\
+            \cf9 color \cf5 = \cf11 "#1CD001"\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return new 
+\f1\b0 \cf12 String\cf8 []\{\cf9 secure\cf5 , \cf9 color\cf8 \}\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+    
+\f0\b \cf2 public void 
+\f1\b0 \cf12 modifSafety\cf8 () \{\
+        \cf6 // Modifie la s\'e9curit\'e9 en fonction des param\'e8tres coch\'e9s\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 len2 \cf5 = \cf9 longueurSeekBar\cf5 .\cf12 getProgress\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 len \cf5 = \cf9 len2 \cf5 * \cf9 len2 \cf5 + \cf14 3 \cf5 * \cf9 len2 \cf5 + \cf14 10\cf5 ;\
+        \cf9 longueurTextView\cf5 .\cf12 setText\cf8 (\cf11 "Longueur : " \cf5 + \cf9 len\cf8 )\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf5 nb_carac = \cf14 0\cf5 ;\
+\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 minSwitch\cf5 .\cf12 isChecked\cf8 ()) \{\
+            \cf5 nb_carac = nb_carac + \cf14 26\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 majSwitch\cf5 .\cf12 isChecked\cf8 ()) \{\
+            \cf5 nb_carac = nb_carac + \cf14 26\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 symSwitch\cf5 .\cf12 isChecked\cf8 ()) \{\
+            \cf5 nb_carac = nb_carac + \cf14 26\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 chiSwitch\cf5 .\cf12 isChecked\cf8 ()) \{\
+            \cf5 nb_carac = nb_carac + \cf14 10\cf5 ;\
+        \cf8 \}\
+\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 bits \cf5 = \cf8 (
+\f0\b \cf2 int
+\f1\b0 \cf8 ) ((\cf4 Math\cf5 .
+\f2\i\b \cf6 round
+\f1\i0\b0 \cf8 (\cf4 Math\cf5 .
+\f2\i\b \cf6 log
+\f1\i0\b0 \cf8 (\cf4 Math\cf5 .
+\f2\i\b \cf6 pow
+\f1\i0\b0 \cf8 (\cf5 nb_carac, \cf9 len\cf8 )) \cf5 / \cf4 Math\cf5 .
+\f2\i\b \cf6 log
+\f1\i0\b0 \cf8 (\cf14 2\cf8 ))))\cf5 ;\
+        \cf4 String\cf8 [] \cf9 result \cf5 = \cf12 safety\cf8 (\cf9 bits\cf8 )\cf5 ;\
+        \cf9 securiteSeekBar\cf5 .\cf12 setProgress\cf8 (\cf9 bits \cf5 - \cf14 33\cf8 )\cf5 ;\
+        \cf9 securiteTextView\cf5 .\cf12 setText\cf8 (\cf9 result\cf8 [\cf14 0\cf8 ] \cf5 + \cf9 bits \cf5 + \cf11 " bits"\cf8 )\cf5 ;\
+        \cf9 securiteTextView\cf5 .\cf12 setTextColor\cf8 (\cf4 Color\cf5 .
+\f2\i\b \cf6 parseColor
+\f1\i0\b0 \cf8 (\cf9 result\cf8 [\cf14 1\cf8 ]))\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 public static 
+\f1\b0 \cf4 String \cf12 alphabet\cf8 (
+\f0\b \cf2 char 
+\f1\b0 \cf13 letter\cf8 ) \{\
+        \cf6 // G\'e9n\'e8re un alphabet selon la lettre donn\'e9e\
+        
+\f0\b \cf2 return 
+\f1\b0 \cf5 alphabets\cf8 [\cf5 alphabets\cf8 [\cf14 26\cf8 ]\cf5 .\cf12 indexOf\cf8 (\cf13 letter\cf8 )]\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 public 
+\f1\b0 \cf4 String\cf8 [] \cf12 complexification\cf8 (\cf4 String \cf5 code\cf8 ) \{\
+        \cf6 // Complexifie le mot de passe\
+\
+        
+\f0\b \cf2 boolean 
+\f1\b0 \cf9 minState \cf5 = \cf9 minSwitch\cf5 .\cf12 isChecked\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 boolean 
+\f1\b0 \cf9 majState \cf5 = \cf9 majSwitch\cf5 .\cf12 isChecked\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 boolean 
+\f1\b0 \cf9 symState \cf5 = \cf9 symSwitch\cf5 .\cf12 isChecked\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 boolean 
+\f1\b0 \cf9 chiState \cf5 = \cf9 chiSwitch\cf5 .\cf12 isChecked\cf8 ()\cf5 ;\
+\
+        \cf4 String \cf9 alpha1 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 code\cf5 .\cf12 charAt\cf8 (\cf14 0\cf8 ))\cf5 .\cf12 toUpperCase\cf8 ()\cf5 ;\
+        \cf4 String \cf9 alpha2 \cf5 = 
+\f2\i\b \cf6 alphabet
+\f1\i0\b0 \cf8 (\cf13 code\cf5 .\cf12 charAt\cf8 (\cf14 1\cf8 ))\cf5 ;\
+        \cf4 String \cf9 symboles \cf5 = \cf11 "@#&!)-_%;:*$+=/?<>&-?($*@#"\cf5 ;\
+\
+        \cf4 StringBuilder \cf5 code2 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 len \cf5 = \cf13 code\cf5 .\cf12 length\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 nb_carac\cf5 ;\
+        
+\f0\b \cf2 char 
+\f1\b0 \cf5 lettrei;\
+\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && !\cf9 majState \cf5 && !\cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 26\cf5 ;\
+            code2 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 (\cf13 code\cf8 )\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && \cf9 majState \cf5 && !\cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 26\cf5 ;\
+            code2 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 (\cf13 code\cf5 .\cf12 toUpperCase\cf8 ())\cf5 ;\
+        \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && !\cf9 majState \cf5 && \cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 26\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = \cf13 code\cf5 .\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+            \cf8 \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && !\cf9 majState \cf5 && !\cf9 symState \cf5 && \cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 10\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = \cf13 code\cf5 .\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+            \cf8 \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && \cf9 majState \cf5 && !\cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 52\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+                \cf8 \}\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+            \cf8 \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && !\cf9 majState \cf5 && \cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 52\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && !\cf9 majState \cf5 && !\cf9 symState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 36\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && \cf9 majState \cf5 && \cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 52\cf5 ;\
+            code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha1\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && \cf9 majState \cf5 && !\cf9 symState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 36\cf5 ;\
+            code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 alpha1\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && !\cf9 majState \cf5 && \cf9 symState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 36\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 2 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && \cf9 majState \cf5 && \cf9 symState \cf5 && !\cf9 chiState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 78\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 1\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 !\cf9 minState \cf5 && \cf9 majState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 62\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 1\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && !\cf9 majState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 62\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                \cf5 lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 1\cf8 ) \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState \cf5 && !\cf9 symState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 62\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 3 \cf5 == \cf14 1\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 minState\cf8 ) \{\
+            \cf9 nb_carac \cf5 = \cf14 88\cf5 ;\
+            
+\f0\b \cf2 for 
+\f1\b0 \cf8 (
+\f0\b \cf2 int 
+\f1\b0 \cf5 i = \cf14 0\cf5 ; i < \cf9 len\cf5 ; i++\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 i % \cf14 4 \cf5 == \cf14 0\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 symboles\cf5 .\cf12 charAt\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 )))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 4 \cf5 == \cf14 1\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf5 i % \cf14 4 \cf5 == \cf14 2\cf8 ) \{\
+                    \cf5 code = code.\cf12 toLowerCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf9 alpha2\cf5 .\cf12 indexOf\cf8 (\cf5 lettrei\cf8 ))\cf5 ;\
+                \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                    \cf5 code = code.\cf12 toUpperCase\cf8 ()\cf5 ;\
+                    lettrei = code.\cf12 charAt\cf8 (\cf5 i\cf8 )\cf5 ;\
+                    code2.\cf12 append\cf8 (\cf5 lettrei\cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+            \cf9 nb_carac \cf5 = \cf14 0\cf5 ;\
+            code2 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 StringBuilder\cf8 (\cf5 code\cf8 )\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 len2 \cf5 = \cf9 longueurSeekBar\cf5 .\cf12 getProgress\cf8 ()\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 len3 \cf5 = \cf9 len2 \cf5 * \cf9 len2 \cf5 + \cf14 3 \cf5 * \cf9 len2 \cf5 + \cf14 10\cf5 ;\
+        \cf4 String \cf5 code3 = code2.\cf12 toString\cf8 ()\cf5 .\cf12 substring\cf8 (\cf14 0\cf5 , \cf9 len3\cf8 )\cf5 ;\
+        
+\f0\b \cf2 int 
+\f1\b0 \cf9 bits \cf5 = \cf8 (
+\f0\b \cf2 int
+\f1\b0 \cf8 ) ((\cf4 Math\cf5 .
+\f2\i\b \cf6 round
+\f1\i0\b0 \cf8 (\cf4 Math\cf5 .
+\f2\i\b \cf6 log
+\f1\i0\b0 \cf8 (\cf4 Math\cf5 .
+\f2\i\b \cf6 pow
+\f1\i0\b0 \cf8 (\cf9 nb_carac\cf5 , code3.\cf12 length\cf8 ())) \cf5 / \cf4 Math\cf5 .
+\f2\i\b \cf6 log
+\f1\i0\b0 \cf8 (\cf14 2\cf8 ))))\cf5 ;\
+        \cf4 String\cf8 [] \cf9 result \cf5 = \cf12 safety\cf8 (\cf9 bits\cf8 )\cf5 ;\
+        
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 bits \cf5 == \cf14 0\cf8 ) \{\
+            \cf5 code3 = \cf11 ""\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return new 
+\f1\b0 \cf12 String\cf8 []\{\cf5 code3, \cf9 result\cf8 [\cf14 0\cf8 ] \cf5 + \cf9 bits \cf5 + \cf11 " bits"\cf5 , \cf4 Integer\cf5 .
+\f2\i\b \cf6 toString
+\f1\i0\b0 \cf8 (\cf9 bits\cf8 )\cf5 , \cf9 result\cf8 [\cf14 1\cf8 ]\}\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 private void 
+\f1\b0 \cf12 modeProgrammateurOn\cf8 ()\{\
+        \cf6 // Mode programmateur activ\'e9 : r\'e9gler param\'e8tres\
+        \cf4 AlertDialog\cf5 .\cf4 Builder \cf9 builder \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 AlertDialog\cf5 .\cf12 Builder\cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf8 )\cf5 ;\
+        \cf9 builder\cf5 .\cf12 setTitle\cf8 (\cf11 "Choix des param\'e8tres"\cf8 )\cf5 ;\
+        \cf4 String\cf8 [] \cf9 questions \cf5 = \cf8 \{\cf11 "Enlever le bouton g\'e9n\'e9rer"\cf8 \}\cf5 ;\
+        
+\f0\b \cf2 final boolean
+\f1\b0 \cf8 [] \cf9 checkedItems \cf5 = \cf8 \{\cf9 sansgenerer\cf8 \}\cf5 ;\
+        \cf9 builder\cf5 .\cf12 setMultiChoiceItems\cf8 (\cf9 questions\cf5 , \cf9 checkedItems\cf5 , 
+\f0\b \cf2 new 
+\f1\b0 \cf7 DialogInterface\cf5 .\cf4 OnMultiChoiceClickListener\cf8 () \{\
+            
+\f0\b \cf6 @Override\
+            \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf7 DialogInterface \cf13 dialog\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 which\cf5 , 
+\f0\b \cf2 boolean 
+\f1\b0 \cf13 isChecked\cf8 ) \{\
+                \cf6 // Choix codage chiffre\
+                //chiffre = checkedItems[0];\
+\
+                // Choix bouton g\'e9n\'e9rer\
+                \cf9 sansgenerer \cf5 = \cf7 checkedItems\cf8 [\cf14 0\cf8 ]\cf5 ;\
+            \cf8 \}\
+        \})\cf5 ;\
+        \cf9 builder\cf5 .\cf12 setPositiveButton\cf8 (\cf11 "OK"\cf5 , \cf12 okListener\cf8 (
+\f3\i \cf15 /*modeProgrammateur*/
+\f1\i0 \cf8 ))\cf5 ;\
+        \cf6 // builder.setNegativeButton("Quitter Mode", okListener(false));\
+        \cf4 AlertDialog \cf9 dialog \cf5 = \cf9 builder\cf5 .\cf12 create\cf8 ()\cf5 ;\
+        \cf9 dialog\cf5 .\cf12 show\cf8 ()\cf5 ;\
+    \cf8 \}\
+\
+    \cf6 // MARK : Actions\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 genererListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 LOLLIPOP
+\f1\i0\b0 \cf8 )\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\{\cf11 "SetTextI18n"\cf5 , \cf11 "WrongConstant"\cf8 \})\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Codage lorsque genererButton est press\'e9\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 chiffreListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf12 lettre\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 motListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf9 clefEditText\cf5 .\cf12 setHint\cf8 (\cf11 "mot clef"\cf8 )\cf5 ;\
+            \cf12 lettre\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 questionListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+\
+\
+            \cf4 AlertDialog\cf5 .\cf4 Builder \cf9 builder \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 AlertDialog\cf5 .\cf12 Builder\cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf8 )\cf5 ;\
+            \cf9 builder\cf5 .\cf12 setTitle\cf8 (\cf11 "\'c0 quelle question voulez-vous r\'e9pondre ?"\cf8 )\cf5 ;\
+            \cf4 String\cf8 [] \cf9 questions \cf5 = \cf8 \{\cf11 "nom jeune fille m\'e8re"\cf5 , \cf11 "nom premier animal de compagnie"\cf5 , \cf11 "rue maison enfance"\cf8 \}\cf5 ;\
+            
+\f0\b \cf2 final boolean
+\f1\b0 \cf8 [] \cf9 checkedItems \cf5 = \cf8 \{
+\f0\b \cf2 false
+\f1\b0 \cf5 , 
+\f0\b \cf2 false
+\f1\b0 \cf5 , 
+\f0\b \cf2 false
+\f1\b0 \cf8 \}\cf5 ;\
+            \cf9 builder\cf5 .\cf12 setMultiChoiceItems\cf8 (\cf9 questions\cf5 , \cf9 checkedItems\cf5 , 
+\f0\b \cf2 new 
+\f1\b0 \cf7 DialogInterface\cf5 .\cf4 OnMultiChoiceClickListener\cf8 () \{\
+                
+\f0\b \cf6 @Override\
+                \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf7 DialogInterface \cf13 dialog\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 which\cf5 , 
+\f0\b \cf2 boolean 
+\f1\b0 \cf13 isChecked\cf8 ) \{\
+                    
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf7 checkedItems\cf8 [\cf14 0\cf8 ]) \{\
+                        \cf9 clefEditText\cf5 .\cf12 setHint\cf8 (\cf11 "nom de jeune fille de votre m\'e8re"\cf8 )\cf5 ;\
+                        \cf12 lettre\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                        \cf13 dialog\cf5 .\cf12 cancel\cf8 ()\cf5 ;\
+                    \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf7 checkedItems\cf8 [\cf14 1\cf8 ]) \{\
+                        \cf9 clefEditText\cf5 .\cf12 setHint\cf8 (\cf11 "nom de votre premier animal de compagnie"\cf8 )\cf5 ;\
+                        \cf12 lettre\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                        \cf13 dialog\cf5 .\cf12 cancel\cf8 ()\cf5 ;\
+                    \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf7 checkedItems\cf8 [\cf14 2\cf8 ]) \{\
+                        \cf9 clefEditText\cf5 .\cf12 setHint\cf8 (\cf11 "rue de la maison de votre enfance"\cf8 )\cf5 ;\
+                        \cf12 lettre\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                        \cf13 dialog\cf5 .\cf12 cancel\cf8 ()\cf5 ;\
+                    \cf8 \}\
+                \}\
+            \})\cf5 ;\
+\
+            \cf9 builder\cf5 .\cf12 setNegativeButton\cf8 (\cf11 "Annuler"\cf5 , 
+\f0\b \cf2 null
+\f1\b0 \cf8 )\cf5 ;\
+\
+            \cf4 AlertDialog \cf9 dialog \cf5 = \cf9 builder\cf5 .\cf12 create\cf8 ()\cf5 ;\
+            \cf9 dialog\cf5 .\cf12 show\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf4 SeekBar\cf5 .\cf7 OnSeekBarChangeListener \cf9 longueurListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 SeekBar\cf5 .\cf4 OnSeekBarChangeListener\cf8 () \{\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onProgressChanged\cf8 (\cf4 SeekBar \cf13 seekBar\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 progress\cf5 , 
+\f0\b \cf2 boolean 
+\f1\b0 \cf13 fromUser\cf8 ) \{\
+            \cf6 // Longueur Slider change\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onStartTrackingTouch\cf8 (\cf4 SeekBar \cf13 seekBar\cf8 ) \{\
+\
+        \}\
+\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onStopTrackingTouch\cf8 (\cf4 SeekBar \cf13 longueur\cf8 ) \{\
+\
+        \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf4 SeekBar\cf5 .\cf7 OnSeekBarChangeListener \cf9 securiteListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 SeekBar\cf5 .\cf4 OnSeekBarChangeListener\cf8 () \{\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onProgressChanged\cf8 (\cf4 SeekBar \cf13 seekBar\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 progress\cf5 , 
+\f0\b \cf2 boolean 
+\f1\b0 \cf13 fromUser\cf8 ) \{\
+            \cf6 // S\'e9curit\'e9 Slider change\
+            
+\f0\b \cf2 int 
+\f1\b0 \cf9 bits \cf5 = \cf9 securiteSeekBar\cf5 .\cf12 getProgress\cf8 () \cf5 + \cf14 33\cf5 ;\
+            \cf4 String\cf8 [] \cf9 result \cf5 = \cf12 safety\cf8 (\cf9 bits\cf8 )\cf5 ;\
+            \cf9 securiteTextView\cf5 .\cf12 setText\cf8 (\cf9 result\cf8 [\cf14 0\cf8 ] \cf5 + \cf9 bits \cf5 + \cf11 " bits"\cf8 )\cf5 ;\
+            \cf9 securiteTextView\cf5 .\cf12 setTextColor\cf8 (\cf4 Color\cf5 .
+\f2\i\b \cf6 parseColor
+\f1\i0\b0 \cf8 (\cf9 result\cf8 [\cf14 1\cf8 ]))\cf5 ;\
+        \cf8 \}\
+\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onStartTrackingTouch\cf8 (\cf4 SeekBar \cf13 seekBar\cf8 ) \{\
+\
+        \}\
+\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onStopTrackingTouch\cf8 (\cf4 SeekBar \cf13 seekBar\cf8 ) \{\
+            \cf6 // S\'e9curit\'e9 Slider change\
+            
+\f0\b \cf2 int 
+\f1\b0 \cf9 bits \cf5 = \cf9 securiteSeekBar\cf5 .\cf12 getProgress\cf8 () \cf5 + \cf14 33\cf5 ;\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 47\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 52\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 57\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 60\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 63\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 65\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 66\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 0\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 72\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 80\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 83\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 88\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 90\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 94\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 1\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 103\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 114\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 119\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 126\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else if 
+\f1\b0 \cf8 (\cf9 bits \cf5 < \cf14 129\cf8 ) \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 false
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                \cf9 longueurSeekBar\cf5 .\cf12 setProgress\cf8 (\cf14 2\cf8 )\cf5 ;\
+                \cf9 minSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 majSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 symSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+                \cf9 chiSwitch\cf5 .\cf12 setChecked\cf8 (
+\f0\b \cf2 true
+\f1\b0 \cf8 )\cf5 ;\
+            \cf8 \}\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 minListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 Q
+\f1\i0\b0 \cf8 )\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Minuscules Switch Change\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 majListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 Q
+\f1\i0\b0 \cf8 )\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Majuscules Switch Change\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 symListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 Q
+\f1\i0\b0 \cf8 )\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Symboles Switch Change\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 chiListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @RequiresApi
+\f1\b0 \cf8 (\cf5 api = \cf4 Build\cf5 .\cf4 VERSION_CODES\cf5 .
+\f2\i\b \cf10 Q
+\f1\i0\b0 \cf8 )\
+        
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "SetTextI18n"\cf8 )\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Chiffres Switch Change\
+            \cf12 modifSafety\cf8 ()\cf5 ;\
+            \cf12 generer\cf8 ()\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 helpListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Aide lorsque bouton help est press\'e9\
+            
+\f0\b \cf2 final 
+\f1\b0 \cf4 SpannableString \cf9 s \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 SpannableString\cf8 (\cf11 "     Vous pouvez choisir entre coder avec une clef dont vous devez vous souvenir, ou entrer des informations personnelles qui serviront de clef pour le codage, vous \'e9vitant de devoir vous souvenir d'une clef"\cf8 )\cf5 ;\
+            \cf4 Linkify\cf5 .
+\f2\i\b \cf6 addLinks
+\f1\i0\b0 \cf8 (\cf9 s\cf5 , \cf4 Linkify\cf5 .
+\f2\i\b \cf10 ALL
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+            
+\f0\b \cf2 final 
+\f1\b0 \cf4 AlertDialog \cf9 d \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 AlertDialog\cf5 .\cf12 Builder\cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf8 )\
+                    \cf5 .\cf12 setPositiveButton\cf8 (\cf4 android.R\cf5 .\cf4 string\cf5 .
+\f2\i\b \cf10 ok
+\f1\i0\b0 \cf5 , 
+\f0\b \cf2 null
+\f1\b0 \cf8 )\
+                    \cf5 .\cf12 setMessage\cf8 (\cf9 s\cf8 )\
+                    \cf5 .\cf12 create\cf8 ()\cf5 ;\
+\
+            \cf9 d\cf5 .\cf12 show\cf8 ()\cf5 ;\
+            \cf8 ((\cf4 TextView\cf8 ) \cf9 d\cf5 .\cf12 findViewById\cf8 (\cf4 android.R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 message
+\f1\i0\b0 \cf8 ))\cf5 .\cf12 setMovementMethod\cf8 (\cf4 LinkMovementMethod\cf5 .
+\f2\i\b \cf6 getInstance
+\f1\i0\b0 \cf8 ())\cf5 ;\
+        \cf8 \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 OnClickListener \cf9 copyListener \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 OnClickListener\cf8 () \{\
+        
+\f0\b \cf6 @Override\
+        \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf4 View \cf13 v\cf8 ) \{\
+            \cf6 // Copie le mot de passe lorsque copyButton est press\'e9\
+            \cf4 java.lang.String \cf9 code \cf5 = \cf9 motPasseEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 !\cf8 (\cf9 code\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0\cf8 ) \cf5 && !\cf8 (\cf9 code\cf5 .\cf12 equals\cf8 (\cf11 "Il manque des valeurs"\cf8 ))) \{\
+                \cf12 copy\cf8 (\cf9 code\cf8 )\cf5 ;\
+                \cf4 Toast\cf5 .
+\f2\i\b \cf6 makeText
+\f1\i0\b0 \cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf5 , \cf11 "Mot de passe copi\'e9 dans le presse-papier"\cf5 , \cf4 Toast\cf5 .
+\f2\i\b \cf10 LENGTH_LONG
+\f1\i0\b0 \cf8 )\cf5 .\cf12 show\cf8 ()\cf5 ;\
+            \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                \cf4 Toast\cf5 .
+\f2\i\b \cf6 makeText
+\f1\i0\b0 \cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf5 , \cf11 "Vous n'avez aucun mot de passe \'e0 copier"\cf5 , \cf4 Toast\cf5 .
+\f2\i\b \cf10 LENGTH_LONG
+\f1\i0\b0 \cf8 )\cf5 .\cf12 show\cf8 ()\cf5 ;\
+            \cf8 \}\
+        \}\
+    \}\cf5 ;\
+\
+    
+\f0\b \cf6 @Override\
+    \cf2 public boolean 
+\f1\b0 \cf12 onCreateOptionsMenu\cf8 (\cf7 Menu \cf13 menu\cf8 ) \{\
+        \cf6 // Cr\'e9ation menu\
+        \cf12 getMenuInflater\cf8 ()\cf5 .\cf12 inflate\cf8 (\cf4 R\cf5 .\cf4 menu\cf5 .
+\f2\i\b \cf10 menu_main
+\f1\i0\b0 \cf5 , \cf13 menu\cf8 )\cf5 ;\
+        
+\f0\b \cf2 return true
+\f1\b0 \cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf6 @SuppressLint
+\f1\b0 \cf8 (\cf11 "Assert"\cf8 )\
+    
+\f0\b \cf6 @Override\
+    \cf2 public boolean 
+\f1\b0 \cf12 onOptionsItemSelected\cf8 (\cf7 MenuItem \cf13 item\cf8 ) \{\
+        \cf6 // Action boutons menu\
+\
+        
+\f0\b \cf2 switch 
+\f1\b0 \cf8 (\cf13 item\cf5 .\cf12 getItemId\cf8 ())\{\
+\
+            
+\f0\b \cf2 case 
+\f1\b0 \cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 aide 
+\f1\i0\b0 \cf5 :\
+            \cf6 // Aide lorsque bouton help est press\'e9\
+\
+            
+\f0\b \cf2 final 
+\f1\b0 \cf4 SpannableString \cf9 s \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 SpannableString\cf8 (\cf11 "     Cette application vous permet de g\'e9n\'e9rer des mots de passe, non pas al\'e9atoirement, mais en fonction du nom du site o\'f9 vous souhaitez vous connecter.\cf14 \\n\\n\cf11      Par exemple, vous d\'e9sirez changer le mot de passe de votre compte Google. Vous n\'92avez alors qu\'92\'e0 entrer dans 'google' dans \'ab\'a0nom du site\'a0\'bb, puis choisir entre une clef ou une question (pour plus d'informations, cliquez sur le point d'interrogation \'e0 cot\'e9 des boutons), les caract\'e8res souhait\'e9s, la longueur du mot de passe, enfin entrez la clef ou la r\'e9ponse \'e0 la question, et le code sera g\'e9n\'e9r\'e9.\cf14 \\n\\n\cf11      Ensuite, pour le retrouver, vous n\'92avez qu\'92\'e0 reprendre l\'92application, toujours mettre 'google' dans nom du site, les m\'eames informations, et vous obtiendrez le bon mot de passe.\cf14 \\n\\n\cf11      Le bouton \'e0 c\'f4t\'e9 du mot de passe g\'e9n\'e9r\'e9 sert \'e0 copier le mot de passe dans votre presse-papier\cf14 \\n\\n\cf11      Pour plus d'information sur la s\'e9curit\'e9 des mots de passe, vous pouvez consulter ce site :\cf14 \\n\cf11   * https://www.ssi.gouv.fr/administration/precautions-elementaires/calculer-la-force-dun-mot-de-passe/"\cf8 )\cf5 ;\
+            \cf4 Linkify\cf5 .
+\f2\i\b \cf6 addLinks
+\f1\i0\b0 \cf8 (\cf9 s\cf5 , \cf4 Linkify\cf5 .
+\f2\i\b \cf10 ALL
+\f1\i0\b0 \cf8 )\cf5 ;\
+\
+            
+\f0\b \cf2 final 
+\f1\b0 \cf4 AlertDialog \cf9 d \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf4 AlertDialog\cf5 .\cf12 Builder\cf8 (
+\f0\b \cf2 this
+\f1\b0 \cf8 )\
+                    \cf5 .\cf12 setPositiveButton\cf8 (\cf4 android.R\cf5 .\cf4 string\cf5 .
+\f2\i\b \cf10 ok
+\f1\i0\b0 \cf5 , 
+\f0\b \cf2 null
+\f1\b0 \cf8 )\
+                    \cf5 .\cf12 setMessage\cf8 (\cf9 s\cf8 )\
+                    \cf5 .\cf12 create\cf8 ()\cf5 ;\
+\
+            \cf9 d\cf5 .\cf12 show\cf8 ()\cf5 ;\
+            \cf8 ((\cf4 TextView\cf8 ) \cf9 d\cf5 .\cf12 findViewById\cf8 (\cf4 android.R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 message
+\f1\i0\b0 \cf8 ))\cf5 .\cf12 setMovementMethod\cf8 (\cf4 LinkMovementMethod\cf5 .
+\f2\i\b \cf6 getInstance
+\f1\i0\b0 \cf8 ())\cf5 ;\
+\
+            
+\f0\b \cf2 case 
+\f1\b0 \cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 share 
+\f1\i0\b0 \cf5 :\
+            \cf6 // Partage le mot de passe lorsque shareButton est press\'e9\
+            \cf4 java.lang.String \cf9 code \cf5 = \cf9 motPasseEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+            
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf5 !\cf8 (\cf9 code\cf5 .\cf12 length\cf8 () \cf5 == \cf14 0\cf8 ) \cf5 && !\cf8 (\cf9 code\cf5 .\cf12 equals\cf8 (\cf11 "Il manque des valeurs"\cf8 ))) \{\
+                \cf4 java.lang.String \cf9 site \cf5 = \cf9 siteEditText\cf5 .\cf12 getText\cf8 ()\cf5 .\cf12 toString\cf8 ()\cf5 ;\
+                \cf4 Intent \cf9 share \cf5 = 
+\f0\b \cf2 new 
+\f1\b0 \cf12 Intent\cf8 (\cf4 android.content.Intent\cf5 .
+\f2\i\b \cf10 ACTION_SEND
+\f1\i0\b0 \cf8 )\cf5 ;\
+                \cf9 share\cf5 .\cf12 setType\cf8 (\cf11 "text/plain"\cf8 )\cf5 ;\
+                \cf9 share\cf5 .\cf12 putExtra\cf8 (\cf4 Intent\cf5 .
+\f2\i\b \cf10 EXTRA_TEXT
+\f1\i0\b0 \cf5 , \cf11 "Mon mot de passe pour " \cf5 + \cf9 site \cf5 + \cf11 " est :\cf14 \\n\cf11 " \cf5 + \cf9 code\cf8 )\cf5 ;\
+                \cf12 startActivity\cf8 (\cf4 Intent\cf5 .
+\f2\i\b \cf6 createChooser
+\f1\i0\b0 \cf8 (\cf9 share\cf5 , \cf11 "Mot de passe"\cf8 ))\cf5 ;\
+\
+            \cf8 \} 
+\f0\b \cf2 else 
+\f1\b0 \cf8 \{\
+                \cf4 Toast\cf5 .
+\f2\i\b \cf6 makeText
+\f1\i0\b0 \cf8 (\cf4 MainActivity\cf5 .
+\f0\b \cf2 this
+\f1\b0 \cf5 , \cf11 "Vous n'avez aucun mot de passe \'e0 partager"\cf5 , \cf4 Toast\cf5 .
+\f2\i\b \cf10 LENGTH_LONG
+\f1\i0\b0 \cf8 )\cf5 .\cf12 show\cf8 ()\cf5 ;\
+            \cf8 \}\
+\
+            
+\f0\b \cf2 case 
+\f1\b0 \cf4 R\cf5 .\cf4 id\cf5 .
+\f2\i\b \cf10 settings 
+\f1\i0\b0 \cf5 :\
+                \cf12 modeProgrammateurOn\cf8 ()\cf5 ;\
+        \cf8 \}\
+        
+\f0\b \cf2 return super
+\f1\b0 \cf5 .\cf12 onOptionsItemSelected\cf8 (\cf13 item\cf8 )\cf5 ;\
+    \cf8 \}\
+\
+    
+\f0\b \cf2 private 
+\f1\b0 \cf7 DialogInterface\cf5 .\cf7 OnClickListener \cf12 okListener\cf8 (
+\f3\i \cf15 /*final boolean mode*/
+\f1\i0 \cf8 ) \{\
+        \cf6 // Changer param\'e8tres lorsque boutons ok ou quitter sont cliqu\'e9s\
+        
+\f0\b \cf2 return new 
+\f1\b0 \cf7 DialogInterface\cf5 .\cf4 OnClickListener\cf8 () \{\
+            
+\f0\b \cf6 @Override\
+            \cf2 public void 
+\f1\b0 \cf12 onClick\cf8 (\cf7 DialogInterface \cf13 dialog\cf5 , 
+\f0\b \cf2 int 
+\f1\b0 \cf13 which\cf8 ) \{\
+                
+\f0\b \cf2 if 
+\f1\b0 \cf8 (\cf9 sansgenerer\cf8 )\{\
+                    \cf9 genererButton\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+                    \cf9 separate\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 VISIBLE
+\f1\i0\b0 \cf8 )\cf5 ;\
+                \cf8 \}\
+                
+\f0\b \cf2 else
+\f1\b0 \cf8 \{\
+                    \cf9 genererButton\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 VISIBLE
+\f1\i0\b0 \cf8 )\cf5 ;\
+                    \cf9 separate\cf5 .\cf12 setVisibility\cf8 (\cf4 View\cf5 .
+\f2\i\b \cf10 GONE
+\f1\i0\b0 \cf8 )\cf5 ;\
+                \cf8 \}\
+            \}\
+        \}\cf5 ;\
+    \cf8 \}\
+\}\
+}
